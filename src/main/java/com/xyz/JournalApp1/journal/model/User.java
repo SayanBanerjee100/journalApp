@@ -32,12 +32,12 @@ public class User {
         this.password = password;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @NonNull
@@ -45,5 +45,5 @@ public class User {
     @NonNull
     private String password;
     @NonNull
-    private String emailId;
+    private String email;
 }
