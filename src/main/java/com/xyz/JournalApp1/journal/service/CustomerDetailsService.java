@@ -24,10 +24,11 @@ public class CustomerDetailsService implements UserDetailsService {
                 .orElseThrow(() ->
                         new UsernameNotFoundException("User not found"));
 
+
         return User
                 .withUsername(user.getUsername())
                 .password(user.getPassword())
-                .authorities("USER")
+                .authorities(user.getAuthorities())
                 .build();
     }
 }
