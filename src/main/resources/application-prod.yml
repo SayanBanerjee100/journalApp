@@ -4,7 +4,7 @@ spring:
       uri: ${MONGODB_URI}
 jwt:
   secret: ${JWT_SECRET}
-  expiration: 3600000   # 1 hour (ms)
+  expiration: 86400000
 
 
 server:
