@@ -23,17 +23,18 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
+
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest request) {
 
-        Authentication authentication =
-                authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(
-                                request.getEmail(),
-                                request.getPassword()
-                        )
-                );
+        Authentication auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
 
-        return jwtUtil.generateToken(authentication.getName());
+        return jwtUtil.generateToken(request.getEmail());
     }
+
 }
