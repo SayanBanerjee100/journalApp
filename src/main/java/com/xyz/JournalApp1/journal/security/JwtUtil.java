@@ -3,6 +3,7 @@ package com.xyz.JournalApp1.journal.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -26,7 +27,7 @@ public class JwtUtil {
                 .compact();
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateToken(String token, UserDetails userDetails) {
         try {
             getClaims(token);
             return true;
@@ -53,5 +54,9 @@ public class JwtUtil {
 
     public String generateToken(String name) {
         return name;
+    }
+
+    public String extractUsername(String token) {
+        return token;
     }
 }
