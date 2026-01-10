@@ -10,7 +10,7 @@ public class User {
     private String id;
 
     private String name;
-    private String email;
+    private String emailId;
     private String password;
     private String role;
 
@@ -32,12 +32,10 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailId(String emailId)
+    {
+        this.emailId = emailId;
     }
 
     public String getPassword() {
@@ -54,5 +52,9 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getEmailId() {
+        return emailId;
     }
 }
