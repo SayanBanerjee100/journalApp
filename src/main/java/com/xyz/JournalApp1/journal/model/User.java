@@ -1,5 +1,6 @@
 package com.xyz.JournalApp1.journal.model;
 
+import org.springframework.context.annotation.Role;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,6 +9,16 @@ public class User {
 
     @Id
     private String id;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    private String role;
 
     public String getId() {
         return id;

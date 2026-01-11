@@ -33,10 +33,6 @@ public class JwtFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
 
 
-        if (request.getServletPath().startsWith("/auth")) {
-            filterChain.doFilter(request, response);
-            return;
-        }
 
         String authHeader = request.getHeader("Authorization");
 
@@ -70,7 +66,11 @@ public class JwtFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
-
+        System.out.println(" JWT FILTER HIT: " + request.getServletPath());
+        if (request.getServletPath().startsWith("/auth")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
         filterChain.doFilter(request, response);
     }
 }

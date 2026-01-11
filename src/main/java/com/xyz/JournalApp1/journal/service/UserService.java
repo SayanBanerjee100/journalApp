@@ -12,22 +12,18 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    
 
-    public User createUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        if (user.getId() == null) {
-            user.setId("USER");
-        }
-
-        return userRepository.save(user);
-    }
 
     public UserService(UserRepository us, PasswordEncoder passwordEncoder) {
 
         this.userRepository = us;
         this.passwordEncoder = passwordEncoder;
+    }
+    public User createUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("USER");
+        return userRepository.save(user);
     }
 
     public User createEntry(User entry) {
