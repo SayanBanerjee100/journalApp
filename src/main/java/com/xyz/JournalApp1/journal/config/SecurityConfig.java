@@ -24,6 +24,8 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+                .httpBasic(httpBasic -> httpBasic.disable())
+                .formLogin(form -> form.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
@@ -35,6 +37,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(
