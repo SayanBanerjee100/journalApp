@@ -1,10 +1,66 @@
+
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/journal_tasks
+    username: postgres
+    password: postgres
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      open-in-view: false
   data:
     mongodb:
       uri: mongodb://localhost:27017/journaldb
 
+    redis:
+      host: localhost
+      port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+        group-id: journal-group
+        auto-offset-reset: earliest
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 105756841806-6ffp6q0gdhcb9u99od85g03pff9builv.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sayanbanerjee382@gmail.com
+    password: xfsulokyfjvpjhpl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 server:
   port: 8080
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info,metrics,prometheus,loggers
+  endpoint:
+    health:
+      show-details: always
+
+
+
 
 logging:
   level:

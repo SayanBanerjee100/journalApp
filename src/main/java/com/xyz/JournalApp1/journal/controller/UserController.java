@@ -2,10 +2,11 @@ package com.xyz.JournalApp1.journal.controller;
 
 import com.xyz.JournalApp1.journal.model.User;
 import com.xyz.JournalApp1.journal.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@Tag(name = "Users", description = "User management APIs")
+@RestController
 @RequestMapping("/users")
 public class UserController {
 
@@ -17,16 +18,6 @@ public class UserController {
 
     @PostMapping("/create")
     public User createUser(@RequestBody User user) {
-        return userService.createEntry(user);
-    }
-
-    @GetMapping("/get")
-    public List<User> getAllUsers() {
-        return userService.getAllEntries();
-    }
-
-    @GetMapping("/get/{id}")
-    public User getUserById(@PathVariable String id) {
-        return userService.getEntryById(id);
+        return userService.createUser(user);
     }
 }

@@ -1,42 +1,23 @@
 package com.xyz.JournalApp1.journal.model;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Document(collection = "journal_entries")
 public class JournalEntry {
 
-    private String title;
+    public String getId() {
+        return id;
+    }
 
     public void setId(String id) {
-        this.userId = id;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    @Id
-    private String userId;
-    private String content;
-    private LocalDateTime createdAt;
-
-    public JournalEntry()
-    {
-        this.createdAt = LocalDateTime.now();
-    }
-    public String getId() {
-        return userId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+        this.id = id;
     }
 
     public String getContent() {
@@ -47,8 +28,63 @@ public class JournalEntry {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+
+
+
+    @Id
+    private String id;
+    private String content;
+    private String title;
+    private String username;
+
+
+    public Instant getCreatedAt() {
         return createdAt;
     }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @CreatedDate
+    private Instant createdAt;
+
+    @LastModifiedDate
+    private Instant updatedAt;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String emailId;
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
 
 }
