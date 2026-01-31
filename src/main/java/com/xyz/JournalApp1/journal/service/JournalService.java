@@ -2,14 +2,12 @@ package com.xyz.JournalApp1.journal.service;
 
 import com.xyz.JournalApp1.journal.kafka.events.JournalCreatedEvent;
 import com.xyz.JournalApp1.journal.kafka.producer.JournalEventProducer;
-import com.xyz.JournalApp1.journal.model.JournalEntry;
-import com.xyz.JournalApp1.journal.repository.JournalRepository;
-import com.xyz.JournalApp1.journal.repository.UserRepository;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.xyz.JournalApp1.journal.model.mongo.JournalEntry;
+import com.xyz.JournalApp1.journal.repository.mongo.JournalRepository;
+import com.xyz.JournalApp1.journal.repository.mongo.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service

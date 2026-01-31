@@ -1,14 +1,14 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/journal_tasks
+    username: postgres
+    password: postgres
+
   data:
     mongodb:
       host: mongo
       port: 27017
       database: journal_db
-
-  datasource:
-    url: jdbc:postgresql://postgres:5432/journal_tasks
-    username: postgres
-    password: postgres
 
   redis:
     host: redis
@@ -16,3 +16,26 @@ spring:
 
   kafka:
     bootstrap-servers: kafka:9092
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  security:
+    oauth2:
+      client:
+        registration: {}   # disables OAuth for docker
+
+logging:
+  level:
+    root: INFO
+
+management:
+    endpoints:
+      web:
+        exposure:
+            include: health,info
+      endpoint:
+        health:
+          show-details: always
+

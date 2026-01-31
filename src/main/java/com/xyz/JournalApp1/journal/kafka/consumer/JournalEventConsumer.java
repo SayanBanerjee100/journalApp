@@ -2,8 +2,8 @@ package com.xyz.JournalApp1.journal.kafka.consumer;
 
 import com.xyz.JournalApp1.journal.kafka.KafkaTopics;
 import com.xyz.JournalApp1.journal.kafka.events.JournalCreatedEvent;
-import com.xyz.JournalApp1.journal.model.AuditLog;
-import com.xyz.JournalApp1.journal.repository.AuditLogRepository;
+import com.xyz.JournalApp1.journal.model.mongo.AuditLog;
+import com.xyz.JournalApp1.journal.repository.mongo.AuditLogRepository;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 

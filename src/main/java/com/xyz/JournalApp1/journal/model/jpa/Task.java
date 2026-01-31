@@ -1,4 +1,4 @@
-package com.xyz.JournalApp1.journal.model;
+package com.xyz.JournalApp1.journal.model.jpa;
 
 import com.xyz.JournalApp1.journal.enums.TaskStatus;
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-package com.xyz.JournalApp1.journal.model;
+package com.xyz.JournalApp1.journal.model.mongo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

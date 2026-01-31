@@ -1,8 +1,8 @@
 package com.xyz.JournalApp1.journal.security;
 
-import com.xyz.JournalApp1.journal.model.Role;
-import com.xyz.JournalApp1.journal.model.User;
-import com.xyz.JournalApp1.journal.repository.UserRepository;
+import com.xyz.JournalApp1.journal.model.enums.Role;
+import com.xyz.JournalApp1.journal.model.mongo.User;
+import com.xyz.JournalApp1.journal.repository.mongo.UserRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

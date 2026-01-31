@@ -1,7 +1,7 @@
 package com.xyz.JournalApp1.journal.security;
 
-import com.xyz.JournalApp1.journal.model.User;
-import com.xyz.JournalApp1.journal.repository.UserRepository;
+import com.xyz.JournalApp1.journal.model.mongo.User;
+import com.xyz.JournalApp1.journal.repository.mongo.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

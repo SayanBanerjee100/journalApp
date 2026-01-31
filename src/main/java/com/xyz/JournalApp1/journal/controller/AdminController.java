@@ -1,10 +1,10 @@
 package com.xyz.JournalApp1.journal.controller;
 
-import com.xyz.JournalApp1.journal.model.AuditLog;
-import com.xyz.JournalApp1.journal.model.Role;
-import com.xyz.JournalApp1.journal.model.User;
-import com.xyz.JournalApp1.journal.repository.AuditLogRepository;
-import com.xyz.JournalApp1.journal.repository.UserRepository;
+import com.xyz.JournalApp1.journal.model.mongo.AuditLog;
+import com.xyz.JournalApp1.journal.model.enums.Role;
+import com.xyz.JournalApp1.journal.model.mongo.User;
+import com.xyz.JournalApp1.journal.repository.mongo.AuditLogRepository;
+import com.xyz.JournalApp1.journal.repository.mongo.UserRepository;
 import com.xyz.JournalApp1.journal.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.access.prepost.PreAuthorize;

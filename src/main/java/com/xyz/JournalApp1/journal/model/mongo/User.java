@@ -1,5 +1,6 @@
-package com.xyz.JournalApp1.journal.model;
+package com.xyz.JournalApp1.journal.model.mongo;
 
+import com.xyz.JournalApp1.journal.model.enums.Role;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -3,10 +3,10 @@ package com.xyz.JournalApp1.journal.service;
 import com.xyz.JournalApp1.journal.dto.task.TaskCreateRequest;
 import com.xyz.JournalApp1.journal.dto.task.TaskResponseDTO;
 import com.xyz.JournalApp1.journal.dto.task.TaskUpdateRequest;
-import com.xyz.JournalApp1.journal.model.Task;
-import com.xyz.JournalApp1.journal.model.User;
-import com.xyz.JournalApp1.journal.repository.TaskRepository;
-import com.xyz.JournalApp1.journal.repository.UserRepository;
+import com.xyz.JournalApp1.journal.model.jpa.Task;
+import com.xyz.JournalApp1.journal.model.mongo.User;
+import com.xyz.JournalApp1.journal.repository.jpa.TaskRepository;
+import com.xyz.JournalApp1.journal.repository.mongo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

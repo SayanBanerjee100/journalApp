@@ -14,8 +14,8 @@ spring:
       uri: mongodb://localhost:27017/journaldb
 
     redis:
-      host: localhost
-      port: 6379
+      repositories:
+        enabled: false
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -58,9 +58,6 @@ management:
   endpoint:
     health:
       show-details: always
-
-
-
 
 logging:
   level:

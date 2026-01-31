@@ -1,6 +1,6 @@
 package com.xyz.JournalApp1.journal.controller;
 
-import com.xyz.JournalApp1.journal.model.JournalEntry;
+import com.xyz.JournalApp1.journal.model.mongo.JournalEntry;
 import com.xyz.JournalApp1.journal.service.JournalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;

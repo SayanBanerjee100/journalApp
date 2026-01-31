@@ -1,6 +1,6 @@
-package com.xyz.JournalApp1.journal.repository;
+package com.xyz.JournalApp1.journal.repository.mongo;
 
-import com.xyz.JournalApp1.journal.model.JournalEntry;
+import com.xyz.JournalApp1.journal.model.mongo.JournalEntry;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 

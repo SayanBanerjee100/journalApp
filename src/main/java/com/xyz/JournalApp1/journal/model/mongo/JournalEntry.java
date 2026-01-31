@@ -1,4 +1,4 @@
-package com.xyz.JournalApp1.journal.model;
+package com.xyz.JournalApp1.journal.model.mongo;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Document(collection = "journal_entries")
 public class JournalEntry {
