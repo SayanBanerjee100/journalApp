@@ -28,8 +28,8 @@ spring:
       client:
         registration:
           google:
-            client-id: 105756841806-6ffp6q0gdhcb9u99od85g03pff9builv.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             scope:
               - email
               - profile
@@ -37,8 +37,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: sayanbanerjee382@gmail.com
-    password: xfsulokyfjvpjhpl
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:

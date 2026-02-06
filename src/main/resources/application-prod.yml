@@ -1,29 +1,62 @@
+server:
+  port: 8080
+
 spring:
+  profiles:
+    active: prod
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration
+
+  kafka:
+    enabled: false
+
   data:
     mongodb:
       uri: ${MONGODB_URI}
-      spring:
-        mail:
-          host: smtp.gmail.com
-          port: 587
-          username: ${sayanbanerjee382@gmail.com}
-          password: ${MAIL_PASSWORD}
-          properties:
-            mail:
-              smtp:
-                auth: true
-                starttls:
-                  enable: true
+
+  datasource:
+    url: ${POSTGRES_URI}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 jwt:
   secret: ${JWT_SECRET}
-  expiration: 86400000
+  expiration-ms: 86400000
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
 
-server:
-  port: 8080
+springdoc:
+  swagger-ui:
+    enabled: true
+    try-it-out-enabled: false
 
 logging:
   level:
     root: INFO
-
