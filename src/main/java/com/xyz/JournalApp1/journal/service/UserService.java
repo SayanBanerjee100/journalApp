@@ -12,11 +12,12 @@ public class UserService {
     private final EmailService emailService;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final RedisOtpService redisOtpService;
 
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, EmailService emailService, RedisOtpService redisOtpService) {
-        this.redisOtpService = redisOtpService;
+
+    public UserService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder,
+                       EmailService emailService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
@@ -40,37 +41,7 @@ public class UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
-    public void generateAndSendResetOtp(String emailId) {
 
-        User user = getByEmailId(emailId);
-
-        String otp = String.valueOf((int) (Math.random() * 900000) + 100000);
-
-        redisOtpService.saveOtp(emailId, otp);
-
-        emailService.sendOtpEmail(emailId, otp);
-    }
-
-
-    public void resetPassword(String emailId, String otp, String newPassword) {
-
-        User user = getByEmailId(emailId);
-
-        String savedOtp = redisOtpService.getOtp(emailId);
-
-        if (savedOtp == null) {
-            throw new RuntimeException("OTP expired or not generated");
-        }
-
-        if (!savedOtp.equals(otp)) {
-            throw new RuntimeException("Invalid OTP");
-        }
-
-        user.setPassword(passwordEncoder.encode(newPassword));
-        userRepository.save(user);
-
-        redisOtpService.deleteOtp(emailId);
-    }
 
 
 }

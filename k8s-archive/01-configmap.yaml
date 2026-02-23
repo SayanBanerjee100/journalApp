@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: journal-config
-  namespace: journal
-data:
-  SPRING_PROFILES_ACTIVE: k8s

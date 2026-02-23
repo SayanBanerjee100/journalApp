@@ -1,7 +1,6 @@
 package com.xyz.JournalApp1.journal.config;
 
 import com.xyz.JournalApp1.journal.security.JwtFilter;
-import com.xyz.JournalApp1.journal.security.OAuth2SuccessHandler;
 import com.xyz.JournalApp1.journal.security.RestAccessDeniedHandler;
 import com.xyz.JournalApp1.journal.security.RestAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
@@ -26,20 +25,17 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     private final JwtFilter jwtFilter;
-    private final OAuth2SuccessHandler oAuth2SuccessHandler;
     private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
     private final RestAccessDeniedHandler restAccessDeniedHandler;
     private final Environment environment;
 
     public SecurityConfig(
             JwtFilter jwtFilter,
-            OAuth2SuccessHandler oAuth2SuccessHandler,
             RestAuthenticationEntryPoint restAuthenticationEntryPoint,
             RestAccessDeniedHandler restAccessDeniedHandler,
             Environment environment
     ) {
         this.jwtFilter = jwtFilter;
-        this.oAuth2SuccessHandler = oAuth2SuccessHandler;
         this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
         this.restAccessDeniedHandler = restAccessDeniedHandler;
         this.environment = environment;
@@ -74,11 +70,6 @@ public class SecurityConfig {
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
-
-        if (Arrays.asList(environment.getActiveProfiles()).contains("dev")) {
-            http.oauth2Login(oauth -> oauth.successHandler(oAuth2SuccessHandler));
-        }
-
         return http.build();
     }
 
@@ -88,7 +79,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
         return config.getAuthenticationManager();
     }
 }

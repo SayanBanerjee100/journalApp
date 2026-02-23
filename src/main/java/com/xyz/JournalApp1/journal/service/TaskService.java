@@ -3,9 +3,9 @@ package com.xyz.JournalApp1.journal.service;
 import com.xyz.JournalApp1.journal.dto.task.TaskCreateRequest;
 import com.xyz.JournalApp1.journal.dto.task.TaskResponseDTO;
 import com.xyz.JournalApp1.journal.dto.task.TaskUpdateRequest;
-import com.xyz.JournalApp1.journal.model.jpa.Task;
+import com.xyz.JournalApp1.journal.model.mongo.Task;
 import com.xyz.JournalApp1.journal.model.mongo.User;
-import com.xyz.JournalApp1.journal.repository.jpa.TaskRepository;
+import com.xyz.JournalApp1.journal.repository.mongo.TaskRepository;
 import com.xyz.JournalApp1.journal.repository.mongo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class TaskService {
     private final UserRepository userRepository;
 
     private User getCurrentUser() {
-        // Works because JWT sets authentication username as email
+
         String email = org.springframework.security.core.context.SecurityContextHolder
                 .getContext()
                 .getAuthentication()
@@ -61,6 +61,9 @@ public class TaskService {
         if (request.title() != null) task.setTitle(request.title());
         if (request.description() != null) task.setDescription(request.description());
         if (request.status() != null) task.setStatus(request.status());
+
+
+        task.setUpdatedAt(java.time.Instant.now());
 
         Task updated = taskRepository.save(task);
         return map(updated);
