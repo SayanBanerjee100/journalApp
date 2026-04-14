@@ -1,6 +1,6 @@
 # 📘 JournalApp — Secure Spring Boot Backend
 
-A production-style backend application built using **Spring Boot** that provides secure REST APIs for managing journals and tasks with **JWT authentication** and **MongoDB persistence**.
+A backend application built using **Spring Boot** that provides secure REST APIs for managing journals and tasks with **JWT authentication** and **MongoDB persistence**.
 
 This project demonstrates backend fundamentals including layered architecture, authentication, API design, and containerized deployment.
 
@@ -15,7 +15,6 @@ This project demonstrates backend fundamentals including layered architecture, a
 * 🗄 MongoDB Document Persistence
 * 🧱 Layered Architecture (Controller → Service → Repository)
 * 🐳 Dockerized Application
-* 📄 OpenAPI / Swagger Documentation
 * 🔑 Password Encryption using BCrypt
 
 ---
@@ -157,17 +156,6 @@ Docker ensures consistent runtime across environments.
 ```
 Authorization: Bearer <TOKEN>
 ```
-
----
-
-## 📖 API Documentation
-
-Swagger UI available at:
-
-```
-http://localhost:8080/swagger-ui.html
-```
-
 ---
 
 ## 🎯 Learning Goals
