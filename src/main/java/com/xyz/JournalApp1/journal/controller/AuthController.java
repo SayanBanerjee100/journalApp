@@ -4,15 +4,10 @@ import com.xyz.JournalApp1.journal.dto.LoginRequest;
 import com.xyz.JournalApp1.journal.model.mongo.User;
 import com.xyz.JournalApp1.journal.security.JwtUtil;
 import com.xyz.JournalApp1.journal.service.UserService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
-
-
-
-@Tag(name = "Auth", description = "Authentication APIs")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

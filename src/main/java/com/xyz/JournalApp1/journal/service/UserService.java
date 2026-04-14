@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    private final EmailService emailService;
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
 
 
     public UserService(UserRepository userRepository,
-                       PasswordEncoder passwordEncoder,
-                       EmailService emailService) {
+                       PasswordEncoder passwordEncoder
+                       ) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.emailService = emailService;
+
     }
 
     public User createUser(User user) {
